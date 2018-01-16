@@ -515,7 +515,7 @@ function upgradePlanet(){
 function upgradeSolarSystem(){
 	if (userData.atom >= upgrade.solarSystemMultiPrice) {
 		upgrade.solarSystemMulti = upgrade.solarSystemMulti * 2;
-		userData.atom -= upgrade.csolarSystemMultiPrice;
+		userData.atom -= upgrade.solarSystemMultiPrice;
 		upgrade.solarSystemMultiPrice = upgrade.solarSystemMultiPrice * 10;
 	}
 }
@@ -669,7 +669,7 @@ function constructIncome(){
 	var incomeMessagePlanetUpgrade = "Multiplier: " + precise(upgrade.planetMulti) + " Price: " + precise(upgrade.planetMultiPrice) + " Atoms";
 
 	var incomeSectionSolarSystemUpgrade = document.getElementById("solarSystem-upgrade");
-	var incomeMessageSolarSystemUpgrade = "Multiplier: " + precise(upgrade.solarSystemMulti) + " Price: " + precise(upgrade.solarSystemMultiPrice) + " Planets";
+	var incomeMessageSolarSystemUpgrade = "Multiplier: " + precise(upgrade.solarSystemMulti) + " Price: " + precise(upgrade.solarSystemMultiPrice) + " Atoms";
 
 	var incomeSectionGalaxyUpgrade = document.getElementById("galaxy-upgrade");
 	var incomeMessageGalaxyUpgrade = "Multiplier: " + precise(upgrade.galaxyMulti) + " Price: " + precise(upgrade.galaxyMultiPrice) + " Atoms";
