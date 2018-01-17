@@ -1,3 +1,14 @@
+/*
+	TO DO LIST
+	1. FIX UPGRADES
+	2. AUTO SAVING/AUTO LOADING
+	3. MUTE BUTTON
+	4. STYLE TEXT
+	5. PLAYTEST/BALANCE
+
+
+*/
+
 var timeSpeed = 1000;
 var incomeSpeed = 10;
 
