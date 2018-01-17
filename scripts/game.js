@@ -6,6 +6,16 @@ audio.loop = true;
 audio.play();
 audio.volume = 0.05;
 
+function musicToggle () {
+	console.log(audio.paused);
+	
+	if (!audio.paused) {
+		audio.pause()
+	} else {
+		audio.play()
+	}
+}
+
 var gameTimeData = {
 	second: 0,
 	minute: 0,

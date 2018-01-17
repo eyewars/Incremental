@@ -40,6 +40,12 @@ button:active{
 	left: 85.5%;
 }
 
+.toggleButton {
+	position: absolute;
+	top: 14.5%;
+	left: 85.5%;
+}
+
 .cellUpgradeButton{
 	position: absolute;
 	width: 300px; 
