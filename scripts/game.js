@@ -6,7 +6,6 @@ audio.loop = true;
 audio.play();
 audio.volume = 0.05;
 
-
 var gameTimeData = {
 	second: 0,
 	minute: 0,
@@ -557,6 +556,7 @@ var incomeTime = setInterval(function(){
 
 function addSecond(){
 	if (gameTimeData.second !== 60){
+		save()
 		gameTimeData.second++
 	} else {
 		gameTimeData.second = 1;
