@@ -749,3 +749,4 @@ function isEndOfMonth(){
 	return endOfMonth;
 }
 
+load();
