@@ -1,10 +1,7 @@
 /*
 	TO DO LIST
-	1. FIX UPGRADES
-	2. AUTO SAVING/AUTO LOADING
-	3. MUTE BUTTON
-	4. STYLE TEXT
-	5. PLAYTEST/BALANCE
+	1. STYLE TEXT
+	2. PLAYTEST/BALANCE
 
 
 */
@@ -17,6 +14,13 @@ audio.loop = true;
 audio.play();
 audio.volume = 0.05;
 
+function pauseMusic(){
+	audio.pause();
+}
+
+function playMusic(){
+	audio.play();
+}
 
 var gameTimeData = {
 	second: 0,
@@ -75,23 +79,23 @@ var price = {
 
 var upgrade = {
 	cellMulti: 1,
-	cellMultiPrice: 100,
+	cellMultiPrice: 1000,
 	plantMulti: 1,
-	plantMultiPrice: 100000,
+	plantMultiPrice: 1000000,
 	catMulti: 1,
-	catMultiPrice: 100,
+	catMultiPrice: 1000000000,
 	humanMulti: 1,
-	humanMultiPrice: 100,
+	humanMultiPrice: 1000000000000,
 	planetMulti: 1,
-	planetMultiPrice: 100,
+	planetMultiPrice: 1000000000000000,
 	solarSystemMulti: 1,
-	solarSystemMultiPrice: 100,
+	solarSystemMultiPrice: 1000000000000000000,
 	galaxyMulti: 1,
-	galaxyMultiPrice: 100,
+	galaxyMultiPrice: 1000000000000000000000,
 	universeMulti: 1,
-	universeMultiPrice: 100,
+	universeMultiPrice: 1000000000000000000000000,
 	multiverseMulti: 1,
-	multiverseMultiPrice: 100
+	multiverseMultiPrice: 1000000000000000000000000000
 }
 
 
@@ -310,6 +314,11 @@ function load(){
 	}	
 }
 
+load();
+
+var autoSave = setInterval(function(){
+	save();
+}, 10000);
 
 function precise(x) {
   return Number.parseFloat(x).toPrecision(4);
