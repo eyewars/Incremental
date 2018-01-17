@@ -98,7 +98,66 @@ var upgrade = {
 	multiverseMultiPrice: 1000000000000000000000000000
 }
 
+function reset(){
+	userData.atom = 0;
+	userData.cell = 0;
+	userData.plant = 0;
+	userData.cat = 0;
+	userData.human = 0;;
+	userData.planet = 0;
+	userData.solarSystem = 0;
+	userData.galaxy = 0;
+	userData.universe = 0;
+	userData.multiverse = 0;
+	userData.atomIncome = 0;
+	userData.cellIncome = 0;
+	userData.plantIncome = 0;
+	userData.catIncome = 0;
+	userData.humanIncome = 0;
+	userData.planetIncome = 0;
+	userData.solarSystemIncome = 0;
+	userData.galaxyIncome = 0;
+	userData.universeIncome = 0;
 
+	basePrice.cellPrice = 20;
+	basePrice.plantPrice = 30;
+	basePrice.catPrice = 40;
+	basePrice.humanPrice = 50;
+	basePrice.planetPrice = 60;
+	basePrice.solarSystemPrice = 70;
+	basePrice.galaxyPrice = 80;
+	basePrice.universePrice = 90;
+	basePrice.multiversePrice = 100;
+
+	price.cellPrice = basePrice.cellPrice * (1.02^userData.cell);
+	price.plantPrice = basePrice.plantPrice * (1.02^userData.plant);
+	price.catPrice = basePrice.catPrice * (1.02^userData.cat);
+	price.humanPrice = basePrice.humanPrice * (1.02^userData.human);
+	price.planetPrice = basePrice.planetPrice * (1.02^userData.planet);
+	price.solarSystemPrice = basePrice.solarSystemPrice * (1.02^userData.solarSystem);
+	price.galaxyPrice = basePrice.galaxyPrice * (1.02^userData.galaxy);
+	price.universePrice = basePrice.universePrice * (1.02^userData.universe);
+	price.multiversePrice = basePrice.multiversePrice * (1.02^userData.multiverse);
+
+	upgrade.cellMulti = 1;
+	upgrade.cellMultiPrice = 1000;
+	upgrade.plantMulti = 1;
+	upgrade.plantMultiPrice = 1000000;
+	upgrade.catMulti = 1;
+	upgrade.catMultiPrice = 1000000000;
+	upgrade.humanMulti = 1;
+	upgrade.humanMultiPrice = 1000000000000;
+	upgrade.planetMulti = 1;
+	upgrade.planetMultiPrice = 1000000000000000;
+	upgrade.solarSystemMulti = 1;
+	upgrade.solarSystemMultiPrice = 1000000000000000000;
+	upgrade.galaxyMulti = 1;
+	upgrade.galaxyMultiPrice = 1000000000000000000000;
+	upgrade.universeMulti = 1;
+	upgrade.universeMultiPrice = 1000000000000000000000000;
+	upgrade.multiverseMulti = 1;
+	upgrade.multiverseMultiPrice = 1000000000000000000000000000;
+}
 
 //Saving
 function save(){
