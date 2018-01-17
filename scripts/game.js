@@ -6,6 +6,15 @@ audio.loop = true;
 audio.play();
 audio.volume = 0.05;
 
+function musicToggle () {
+	console.log(audio.paused);
+	
+	if (!audio.paused) {
+		audio.pause()
+	} else {
+		audio.play()
+	}
+}
 
 var gameTimeData = {
 	second: 0,
@@ -557,6 +566,7 @@ var incomeTime = setInterval(function(){
 
 function addSecond(){
 	if (gameTimeData.second !== 60){
+		save()
 		gameTimeData.second++
 	} else {
 		gameTimeData.second = 1;
@@ -749,3 +759,4 @@ function isEndOfMonth(){
 	return endOfMonth;
 }
 
+load();
