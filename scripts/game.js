@@ -1,8 +1,10 @@
 /*
 	TO DO LIST
-	1. STYLE TEXT
-	2. PLAYTEST/BALANCE
-
+	1. Prestige (Make text aswell)
+	2. More balancing
+	3. Fix the UI (Needs to work in different screen sizes)
+	4. Style text
+	5. 
 
 */
 
@@ -31,6 +33,8 @@ var gameTimeData = {
 	year: 0
 }
 
+var prestigeBonus = 1;
+
 var userData = {
 	atom: 0,
 	cell: 0,
@@ -50,7 +54,7 @@ var userData = {
 	planetIncome: 0,
 	solarSystemIncome: 0,
 	galaxyIncome: 0,
-	universeIncome: 0
+	universeIncome: 0,
 }
 
 var basePrice = {
@@ -98,7 +102,87 @@ var upgrade = {
 	multiverseMultiPrice: 1000000000000000000000000000
 }
 
+
+function getBaseLog(x, y) {
+	return Math.log(y) / Math.log(x);
+}
+
+function prestigeBonus(x){
+	return 150 * (x / 1000000000000000);
+}
+
+function prestigeBonusDone(x){
+	return Math.cbrt(cookieBonus(x))
+}
+
+function prestige(){
+	prestigeBonus = prestigeBonus + prestigeBonusDone(userData.atom);
+
+	userData.atom = 0;
+	userData.cell = 0;
+	userData.plant = 0;
+	userData.cat = 0;
+	userData.human = 0;
+	userData.planet = 0;
+	userData.solarSystem = 0;
+	userData.galaxy = 0;
+	userData.universe = 0;
+	userData.multiverse = 0;
+	userData.atomIncome = 0;
+	userData.cellIncome = 0;
+	userData.plantIncome = 0;
+	userData.catIncome = 0;
+	userData.humanIncome = 0;
+	userData.planetIncome = 0;
+	userData.solarSystemIncome = 0;
+	userData.galaxyIncome = 0;
+	userData.universeIncome = 0;
+
+	basePrice.cellPrice = 20;
+	basePrice.plantPrice = 30;
+	basePrice.catPrice = 40;
+	basePrice.humanPrice = 50;
+	basePrice.planetPrice = 60;
+	basePrice.solarSystemPrice = 70;
+	basePrice.galaxyPrice = 80;
+	basePrice.universePrice = 90;
+	basePrice.multiversePrice = 100;
+
+	price.cellPrice = basePrice.cellPrice * (1.02^userData.cell);
+	price.plantPrice = basePrice.plantPrice * (1.02^userData.plant);
+	price.catPrice = basePrice.catPrice * (1.02^userData.cat);
+	price.humanPrice = basePrice.humanPrice * (1.02^userData.human);
+	price.planetPrice = basePrice.planetPrice * (1.02^userData.planet);
+	price.solarSystemPrice = basePrice.solarSystemPrice * (1.02^userData.solarSystem);
+	price.galaxyPrice = basePrice.galaxyPrice * (1.02^userData.galaxy);
+	price.universePrice = basePrice.universePrice * (1.02^userData.universe);
+	price.multiversePrice = basePrice.multiversePrice * (1.02^userData.multiverse);
+
+	upgrade.cellMulti = 1;
+	upgrade.cellMultiPrice = 1000;
+	upgrade.plantMulti = 1;
+	upgrade.plantMultiPrice = 1000000;
+	upgrade.catMulti = 1;
+	upgrade.catMultiPrice = 1000000000;
+	upgrade.humanMulti = 1;
+	upgrade.humanMultiPrice = 1000000000000;
+	upgrade.planetMulti = 1;
+	upgrade.planetMultiPrice = 1000000000000000;
+	upgrade.solarSystemMulti = 1;
+	upgrade.solarSystemMultiPrice = 1000000000000000000;
+	upgrade.galaxyMulti = 1;
+	upgrade.galaxyMultiPrice = 1000000000000000000000;
+	upgrade.universeMulti = 1;
+	upgrade.universeMultiPrice = 1000000000000000000000000;
+	upgrade.multiverseMulti = 1;
+	upgrade.multiverseMultiPrice = 1000000000000000000000000000;
+}
+
+
+
 function reset(){
+	prestigeBonus = 1;
+
 	userData.atom = 0;
 	userData.cell = 0;
 	userData.plant = 0;
@@ -168,6 +252,8 @@ function save(){
 		day: gameTimeData.day,
 		month: gameTimeData.month,
 		year: gameTimeData.year,
+
+		prestigeBonus: prestigeBonus,
 
 		atom: userData.atom,
 
@@ -239,6 +325,11 @@ function load(){
 	}
 	if (typeof saveGame.year !== "undefined"){
 		gameTimeData.year = saveGame.year;
+	}
+
+
+	if (typeof saveGame.prestigeBonus !== "undefined"){
+		prestigeBonus = saveGame.prestigeBonus;
 	}
 
 
@@ -518,31 +609,31 @@ function addMultiverse() {
 
 //Income Adding Functions
 function increase(){
-	userData.atomIncome = (1.1 * userData.cell) * upgrade.cellMulti;
+	userData.atomIncome = (1.1 * userData.cell) * upgrade.cellMulti * prestigeBonus;
 	price.cellPrice;
 
-	userData.cellIncome = (0.5 * userData.plant) *  upgrade.plantMulti;
+	userData.cellIncome = (0.5 * userData.plant) *  upgrade.plantMulti * prestigeBonus;
 	price.plantPrice;
 
-	userData.plantIncome = (0.4 * userData.cat) *  upgrade.catMulti;
+	userData.plantIncome = (0.4 * userData.cat) *  upgrade.catMulti * prestigeBonus;
 	price.catPrice;
 
-	userData.catIncome = (0.3 * userData.human) *  upgrade.humanMulti;
+	userData.catIncome = (0.3 * userData.human) *  upgrade.humanMulti * prestigeBonus;
 	price.humanPrice;
 
-	userData.humanIncome = (0.2 * userData.planet) *  upgrade.planetMulti;
+	userData.humanIncome = (0.2 * userData.planet) *  upgrade.planetMulti * prestigeBonus;
 	price.planetPrice;
 
-	userData.planetIncome = (0.15 * userData.solarSystem) * upgrade.solarSystemMulti;
+	userData.planetIncome = (0.15 * userData.solarSystem) * upgrade.solarSystemMulti * prestigeBonus;
 	price.solarSystemPrice;
 
-	userData.solarSystemIncome = (0.1 * userData.galaxy) *  upgrade.galaxyMulti;
+	userData.solarSystemIncome = (0.1 * userData.galaxy) *  upgrade.galaxyMulti * prestigeBonus;
 	price.galaxyPrice;
 
-	userData.galaxyIncome = (0.05 * userData.universe) *  upgrade.universeMulti;
+	userData.galaxyIncome = (0.05 * userData.universe) *  upgrade.universeMulti * prestigeBonus;
 	price.universePrice;
 
-	userData.universeIncome = (0.005 * userData.multiverse) *  upgrade.multiverseMulti;
+	userData.universeIncome = (0.005 * userData.multiverse) *  upgrade.multiverseMulti * prestigeBonus;
 	price.multiversePrice;
 };
 
