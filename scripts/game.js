@@ -1,7 +1,7 @@
 /*
 	TO DO LIST
 	1. Prestige (Make text aswell)
-	2. More balancing
+	2. More balancing (Buildings and upgrades)
 	3. Fix the UI (Needs to work in different screen sizes)
 	4. Style text
 	5. 
@@ -107,16 +107,16 @@ function getBaseLog(x, y) {
 	return Math.log(y) / Math.log(x);
 }
 
-function prestigeBonus(x){
+function prestigeBonusFunc(x){
 	return 150 * (x / 1000000000000000);
 }
 
-function prestigeBonusDone(x){
-	return Math.cbrt(cookieBonus(x))
+function prestigeBonusFuncDone(x){
+	return Math.cbrt(prestigeBonusFunc(x))
 }
 
 function prestige(){
-	prestigeBonus = prestigeBonus + prestigeBonusDone(userData.atom);
+	prestigeBonus = prestigeBonus + prestigeBonusFuncDone(userData.atom);
 
 	userData.atom = 0;
 	userData.cell = 0;
