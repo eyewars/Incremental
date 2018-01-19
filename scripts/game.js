@@ -103,10 +103,6 @@ var upgrade = {
 }
 
 
-var x = new Decimal(115015011150150150150150151501500150151501515001501501501501501501501501500150150150501501501501501501501501501501501501501501501501501501515015015015015015015015015015015015015015015015015001501501501501501501500150150150150150150150150150150150150150150150150150150150150150150150150150150150150150150150150);
-
-console.log(x.exponent, x.mantissa);
-
 
 function getBaseLog(x, y) {
 	return Math.log(y) / Math.log(x);
@@ -187,6 +183,13 @@ function prestige(){
 
 function reset(){
 	prestigeBonus = 1;
+
+	gameTimeData.second = 0;
+	gameTimeData.minute = 0;
+	gameTimeData.hour = 0;
+	gameTimeData.day = 0;
+	gameTimeData.month = 0;
+	gameTimeData.year = 0;
 
 	userData.atom = 0;
 	userData.cell = 0;
@@ -478,6 +481,7 @@ var autoSave = setInterval(function(){
 function precise(x) {
   return Number.parseFloat(x).toPrecision(4);
 }
+
 
 
 //Income Functions
