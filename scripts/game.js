@@ -479,9 +479,11 @@ function played(){
 
 if (hasPlayed = true){
 	load();
+} else {
+	played();
 }
 
-played();
+
 
 
 //reset();
