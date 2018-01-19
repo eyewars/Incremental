@@ -7,7 +7,6 @@
 	5. 
 
 */
-
 var timeSpeed = 1000;
 var incomeSpeed = 10;
 
@@ -25,7 +24,7 @@ function playMusic(){
 }
 
 var gameTimeData = {
-	second: 0,
+	second: 1,
 	minute: 0,
 	hour: 0,
 	day: 0,
@@ -472,7 +471,7 @@ function load(){
 	}	
 }
 
-load();
+//load();
 
 var autoSave = setInterval(function(){
 	save();
