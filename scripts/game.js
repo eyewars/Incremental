@@ -471,8 +471,22 @@ function load(){
 	}	
 }
 
-reset();
-load();               //YOU NEED TO FIGURE SOMETHING OUT ABOUT THIS
+var hasPlayed = false;
+
+function played(){
+	hasPlayed = true;
+}
+
+if (hasPlayed = true){
+	load();
+}
+
+played();
+
+
+//reset();
+
+//load();               //YOU NEED TO FIGURE SOMETHING OUT ABOUT THIS
 
 var autoSave = setInterval(function(){
 	save();
