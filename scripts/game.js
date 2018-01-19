@@ -471,7 +471,8 @@ function load(){
 	}	
 }
 
-//load();
+reset();
+load();               //YOU NEED TO FIGURE SOMETHING OUT ABOUT THIS
 
 var autoSave = setInterval(function(){
 	save();
