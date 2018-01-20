@@ -312,8 +312,10 @@ function save(){
 	localStorage.setItem("save",JSON.stringify(save)); 
 }
 
+var saveGame = JSON.parse(localStorage.getItem("save"));
+
 function load(){
-	var saveGame = JSON.parse(localStorage.getItem("save")); 
+	//var saveGame = JSON.parse(localStorage.getItem("save")); 
 
 	//if (!saveGame  || typeof  saveGame.second !== "undefined" ){// FIX MAYBE
 
@@ -474,9 +476,14 @@ function load(){
 }
 
 
-//reset();
+reset();
 
-//load();               //YOU NEED TO FIGURE SOMETHING OUT ABOUT THIS
+if (saveGame.atom !== 0){
+	load(); 
+}
+console.log("test");
+
+               //YOU NEED TO FIGURE SOMETHING OUT ABOUT THIS
 
 var autoSave = setInterval(function(){
 	save();
