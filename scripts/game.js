@@ -315,6 +315,8 @@ function save(){
 function load(){
 	var saveGame = JSON.parse(localStorage.getItem("save")); 
 
+	//if (!saveGame  || typeof  saveGame.second !== "undefined" ){// FIX MAYBE
+
 	if (typeof saveGame.second !== "undefined"){
 		gameTimeData.second = saveGame.second;
 	}
@@ -470,20 +472,6 @@ function load(){
 		upgrade.multiverseMultiPrice = saveGame.multiverseMultiPrice;
 	}	
 }
-
-var hasPlayed = false;
-
-function played(){
-	hasPlayed = true;
-}
-
-if (hasPlayed = true){
-	load();
-} else {
-	played();
-}
-
-
 
 
 //reset();
