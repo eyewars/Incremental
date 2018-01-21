@@ -322,7 +322,7 @@ function load(){
 	//if (!saveGame  || typeof  saveGame.second !== "undefined" ){// FIX MAYBE
 
 
-	if (typeof saveGame.prestigeBonus !== "undefined"){
+	if (typeof saveGame.prestigeBonus !== "null"){
 		prestigeBonus = saveGame.prestigeBonus;
 	}
 
