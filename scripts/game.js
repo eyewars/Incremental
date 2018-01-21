@@ -1,5 +1,6 @@
 /*
 	TO DO LIST
+	0. Fix saving/loading system (If nothing works try to remove or comment out all the time things)
 	1. Prestige (Make text aswell)
 	2. More balancing (Buildings and upgrades)
 	3. Fix the UI (Needs to work in different screen sizes)
@@ -7,6 +8,7 @@
 	5. 
 
 */
+
 var timeSpeed = 1000;
 var incomeSpeed = 10;
 
@@ -183,12 +185,12 @@ function prestige(){
 function reset(){
 	prestigeBonus = 1;
 
-	gameTimeData.second = 0;
+	/*gameTimeData.second = 0;
 	gameTimeData.minute = 0;
 	gameTimeData.hour = 0;
 	gameTimeData.day = 0;
 	gameTimeData.month = 0;
-	gameTimeData.year = 0;
+	gameTimeData.year = 0;*/
 
 	userData.atom = 0;
 	userData.cell = 0;
@@ -253,14 +255,14 @@ function reset(){
 //Saving
 function save(){
 	var save = {
-		second: gameTimeData.second,
+		prestigeBonus: prestigeBonus,
+
+		/*second: gameTimeData.second,
 		minute: gameTimeData.minute,
 		hour: gameTimeData.hour,
 		day: gameTimeData.day,
 		month: gameTimeData.month,
-		year: gameTimeData.year,
-
-		prestigeBonus: prestigeBonus,
+		year: gameTimeData.year,*/
 
 		atom: userData.atom,
 
@@ -319,7 +321,13 @@ function load(){
 
 	//if (!saveGame  || typeof  saveGame.second !== "undefined" ){// FIX MAYBE
 
-	if (typeof saveGame.second !== "undefined"){
+
+	if (typeof saveGame.prestigeBonus !== "undefined"){
+		prestigeBonus = saveGame.prestigeBonus;
+	}
+
+
+	/*if (typeof saveGame.second !== "undefined"){
 		gameTimeData.second = saveGame.second;
 	}
 	if (typeof saveGame.minute !== "undefined"){
@@ -336,12 +344,8 @@ function load(){
 	}
 	if (typeof saveGame.year !== "undefined"){
 		gameTimeData.year = saveGame.year;
-	}
+	}*/
 
-
-	if (typeof saveGame.prestigeBonus !== "undefined"){
-		prestigeBonus = saveGame.prestigeBonus;
-	}
 
 
 	if (typeof saveGame.atom !== "undefined"){
@@ -483,7 +487,6 @@ if (saveGame.atom !== 0){
 }
 console.log("test");
 
-               //YOU NEED TO FIGURE SOMETHING OUT ABOUT THIS
 
 var autoSave = setInterval(function(){
 	save();
@@ -736,16 +739,16 @@ function upgradeMultiverse(){
 
 
 //Timer Functions
-var gameTime = setInterval(function(){
+/*var gameTime = setInterval(function(){
 	addSecond();
-}, timeSpeed);
+}, timeSpeed);*/
 
 var incomeTime = setInterval(function(){
 	addCurrency();
 	increase();
 }, incomeSpeed)
 
-function addSecond(){
+/*function addSecond(){
 	if (gameTimeData.second !== 60){
 		gameTimeData.second++
 	} else {
@@ -793,7 +796,7 @@ function addMonth(){
 		gameTimeData.year++;
 	}
 	constructTimeSection();
-};
+};*/
 
 
 
@@ -802,12 +805,12 @@ function addMonth(){
 
 
 //Constructor Functions
-function constructTimeSection(){
+/*function constructTimeSection(){
 	var timeSection = document.getElementById("game-time");
 	var timeMessage = "Seconds: " + gameTimeData.second + " Minutes: " + gameTimeData.minute + " Hours: " + gameTimeData.hour + " Days: " + gameTimeData.day + " Months: " + gameTimeData.month + " Years: " + gameTimeData.year;
 
 	timeSection.innerText = timeMessage;
-}
+}*/
 
 function constructIncome(){
 
@@ -893,7 +896,7 @@ function constructIncome(){
 }
 
 //Check Functions
-function isEndOfMonth(){
+/*function isEndOfMonth(){
 	var endOfMonth = false;
 	switch(true){
 		case(gameTimeData.month === 1 && gameTimeData.day === 31):
@@ -937,5 +940,5 @@ function isEndOfMonth(){
 	}
 
 	return endOfMonth;
-}
+}*/
 
