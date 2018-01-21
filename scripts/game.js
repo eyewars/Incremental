@@ -482,10 +482,9 @@ function load(){
 
 reset();
 
-if (saveGame.atom !== 0){
-	load(); 
-}
-console.log("test");
+
+load(); 
+
 
 
 var autoSave = setInterval(function(){
