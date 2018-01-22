@@ -321,8 +321,7 @@ function load(){
 
 	//if (!saveGame  || typeof  saveGame.second !== "undefined" ){// FIX MAYBE
 
-
-	if (typeof saveGame.prestigeBonus !== "null"){
+	if (typeof saveGame.prestigeBonus !== "undefined"){
 		prestigeBonus = saveGame.prestigeBonus;
 	}
 
@@ -479,6 +478,11 @@ function load(){
 	}	
 }
 
+if (saveGame.atom >= 0){
+
+}else{
+	save();
+}
 
 reset();
 
