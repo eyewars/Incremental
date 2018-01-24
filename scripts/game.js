@@ -478,11 +478,7 @@ function load(){
 	}	
 }
 
-if (saveGame.atom >= 0){
 
-}else{
-	save();
-}
 
 reset();
 
