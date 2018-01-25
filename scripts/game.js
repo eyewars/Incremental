@@ -185,12 +185,12 @@ function prestige(){
 function reset(){
 	prestigeBonus = 1;
 
-	/*gameTimeData.second = 0;
+	gameTimeData.second = 0;
 	gameTimeData.minute = 0;
 	gameTimeData.hour = 0;
 	gameTimeData.day = 0;
 	gameTimeData.month = 0;
-	gameTimeData.year = 0;*/
+	gameTimeData.year = 0;
 
 	userData.atom = 0;
 	userData.cell = 0;
@@ -257,12 +257,12 @@ function save(){
 	var save = {
 		prestigeBonus: prestigeBonus,
 
-		/*second: gameTimeData.second,
+		second: gameTimeData.second,
 		minute: gameTimeData.minute,
 		hour: gameTimeData.hour,
 		day: gameTimeData.day,
 		month: gameTimeData.month,
-		year: gameTimeData.year,*/
+		year: gameTimeData.year,
 
 		atom: userData.atom,
 
@@ -314,174 +314,76 @@ function save(){
 	localStorage.setItem("save",JSON.stringify(save)); 
 }
 
-var saveGame = JSON.parse(localStorage.getItem("save"));
-
 function load(){
-	//var saveGame = JSON.parse(localStorage.getItem("save")); 
+	var saveGame = JSON.parse(localStorage.getItem("save")); 
 
-	//if (!saveGame  || typeof  saveGame.second !== "undefined" ){// FIX MAYBE
+	
+	prestigeBonus = saveGame.prestigeBonus;
+	
 
-	if (typeof saveGame.prestigeBonus !== "undefined"){
-		prestigeBonus = saveGame.prestigeBonus;
-	}
+	gameTimeData.second = saveGame.second;	
+	gameTimeData.minute = saveGame.minute;	
+	gameTimeData.hour = saveGame.hour;
+	gameTimeData.day = saveGame.day;
+	gameTimeData.month = saveGame.month;
+	gameTimeData.year = saveGame.year;
+	
 
+	userData.atom = saveGame.atom;
+	userData.cell = saveGame.cell;
+	price.cellPrice = saveGame.cellPrice;
+	upgrade.cellMulti = saveGame.cellMulti;
+	upgrade.cellMultiPrice = saveGame.cellMultiPrice;
+	
 
-	/*if (typeof saveGame.second !== "undefined"){
-		gameTimeData.second = saveGame.second;
-	}
-	if (typeof saveGame.minute !== "undefined"){
-		gameTimeData.minute = saveGame.minute;
-	}
-	if (typeof saveGame.hour !== "undefined"){
-		gameTimeData.hour = saveGame.hour;
-	}
-	if (typeof saveGame.day !== "undefined"){
-		gameTimeData.day = saveGame.day;
-	}
-	if (typeof saveGame.month !== "undefined"){
-		gameTimeData.month = saveGame.month;
-	}
-	if (typeof saveGame.year !== "undefined"){
-		gameTimeData.year = saveGame.year;
-	}*/
+	userData.plant = saveGame.plant;
+	price.plantPrice = saveGame.plantPrice;
+	upgrade.plantMulti = saveGame.plantMulti;
+	upgrade.plantMultiPrice = saveGame.plantMultiPrice;
+	
 
+	userData.cat = saveGame.cat;
+	price.catPrice = saveGame.catPrice;
+	upgrade.catMulti = saveGame.catMulti;
+	upgrade.catMultiPrice = saveGame.catMultiPrice;
+	
 
+	userData.human = saveGame.human;
+	price.humanPrice = saveGame.humanPrice;
+	upgrade.humanMulti = saveGame.humanMulti;
+	upgrade.humanMultiPrice = saveGame.humanMultiPrice;
+	
 
-	if (typeof saveGame.atom !== "undefined"){
-		userData.atom = saveGame.atom;
-	}
+	userData.planet = saveGame.planet;
+	price.planetPrice = saveGame.planetPrice;
+	upgrade.planetMulti = saveGame.planetMulti;
+	upgrade.planetMultiPrice = saveGame.planetMultiPrice;
+	
 
+	userData.solarSystem = saveGame.solarSystem;
+	price.solarSystemPrice = saveGame.solarSystemPrice;
+	upgrade.solarSystemMulti = saveGame.solarSystemMulti;
+	upgrade.solarSystemMultiPrice = saveGame.solarSystemMultiPrice;
+	
+	
+	userData.galaxy = saveGame.galaxy;
+	price.galaxyPrice = saveGame.galaxyPrice;
+	upgrade.galaxyMulti = saveGame.galaxyMulti;
+	upgrade.galaxyMultiPrice = saveGame.galaxyMultiPrice;
+	
 
-	if (typeof saveGame.cell !== "undefined"){
-		userData.cell = saveGame.cell;
-	}
-	if (typeof saveGame.cellPrice !== "undefined"){
-		price.cellPrice = saveGame.cellPrice;
-	}
-	if (typeof saveGame.cellMulti !== "undefined"){
-		upgrade.cellMulti = saveGame.cellMulti;
-	}
-	if (typeof saveGame.cellMultiPrice !== "undefined"){
-		upgrade.cellMultiPrice = saveGame.cellMultiPrice;
-	}
+	userData.universe = saveGame.universe;
+	price.universePrice = saveGame.universePrice;
+	upgrade.universeMulti = saveGame.universeMulti;
+	upgrade.universeMultiPrice = saveGame.universeMultiPrice;
+	
 
-
-	if (typeof saveGame.plant !== "undefined"){
-		userData.plant = saveGame.plant;
-	}
-	if (typeof saveGame.plantPrice !== "undefined"){
-		price.plantPrice = saveGame.plantPrice;
-	}
-	if (typeof saveGame.plantMulti !== "undefined"){
-		upgrade.plantMulti = saveGame.plantMulti;
-	}
-	if (typeof saveGame.plantMultiPrice !== "undefined"){
-		upgrade.plantMultiPrice = saveGame.plantMultiPrice;
-	}
-
-
-	if (typeof saveGame.cat !== "undefined"){
-		userData.cat = saveGame.cat;
-	}
-	if (typeof saveGame.catPrice !== "undefined"){
-		price.catPrice = saveGame.catPrice;
-	}
-	if (typeof saveGame.catMulti !== "undefined"){
-		upgrade.catMulti = saveGame.catMulti;
-	}
-	if (typeof saveGame.catMultiPrice !== "undefined"){
-		upgrade.catMultiPrice = saveGame.catMultiPrice;
-	}
-
-
-	if (typeof saveGame.human !== "undefined"){
-		userData.human = saveGame.human;
-	}
-	if (typeof saveGame.humanPrice !== "undefined"){
-		price.humanPrice = saveGame.humanPrice;
-	}
-	if (typeof saveGame.humanMulti !== "undefined"){
-		upgrade.humanMulti = saveGame.humanMulti;
-	}
-	if (typeof saveGame.humanMultiPrice !== "undefined"){
-		upgrade.humanMultiPrice = saveGame.humanMultiPrice;
-	}
-
-
-	if (typeof saveGame.planet !== "undefined"){
-		userData.planet = saveGame.planet;
-	}
-	if (typeof saveGame.planetPrice !== "undefined"){
-		price.planetPrice = saveGame.planetPrice;
-	}
-	if (typeof saveGame.planetMulti !== "undefined"){
-		upgrade.planetMulti = saveGame.planetMulti;
-	}
-	if (typeof saveGame.planetMultiPrice !== "undefined"){
-		upgrade.planetMultiPrice = saveGame.planetMultiPrice;
-	}
-
-
-	if (typeof saveGame.solarSystem !== "undefined"){
-		userData.solarSystem = saveGame.solarSystem;
-	}
-	if (typeof saveGame.solarSystemPrice !== "undefined"){
-		price.solarSystemPrice = saveGame.solarSystemPrice;
-	}
-	if (typeof saveGame.solarSystemMulti !== "undefined"){
-		upgrade.solarSystemMulti = saveGame.solarSystemMulti;
-	}
-	if (typeof saveGame.solarSystemMultiPrice !== "undefined"){
-		upgrade.solarSystemMultiPrice = saveGame.solarSystemMultiPrice;
-	}
-
-
-	if (typeof saveGame.galaxy !== "undefined"){
-		userData.galaxy = saveGame.galaxy;
-	}
-	if (typeof saveGame.galaxyPrice !== "undefined"){
-		price.galaxyPrice = saveGame.galaxyPrice;
-	}
-	if (typeof saveGame.galaxyMulti !== "undefined"){
-		upgrade.galaxyMulti = saveGame.galaxyMulti;
-	}
-	if (typeof saveGame.galaxyMultiPrice !== "undefined"){
-		upgrade.galaxyMultiPrice = saveGame.galaxyMultiPrice;
-	}
-
-
-	if (typeof saveGame.universe !== "undefined"){
-		userData.universe = saveGame.universe;
-	}
-	if (typeof saveGame.universePrice !== "undefined"){
-		price.universePrice = saveGame.universePrice;
-	}
-	if (typeof saveGame.universeMulti !== "undefined"){
-		upgrade.universeMulti = saveGame.universeMulti;
-	}
-	if (typeof saveGame.universeMultiPrice !== "undefined"){
-		upgrade.universeMultiPrice = saveGame.universeMultiPrice;
-	}
-
-
-	if (typeof saveGame.multiverse !== "undefined"){
-		userData.multiverse = saveGame.multiverse;
-	}
-	if (typeof saveGame.multiversePrice !== "undefined"){
-		price.multiversePrice = saveGame.multiversePrice;
-	}
-	if (typeof saveGame.multiverseMulti !== "undefined"){
-		upgrade.multiverseMulti = saveGame.multiverseMulti;
-	}
-	if (typeof saveGame.multiverseMultiPrice !== "undefined"){
-		upgrade.multiverseMultiPrice = saveGame.multiverseMultiPrice;
-	}	
+	userData.multiverse = saveGame.multiverse;
+	price.multiversePrice = saveGame.multiversePrice;
+	upgrade.multiverseMulti = saveGame.multiverseMulti;
+	upgrade.multiverseMultiPrice = saveGame.multiverseMultiPrice;
+		
 }
-
-
-
-reset();
-
 
 load(); 
 
@@ -491,7 +393,7 @@ var autoSave = setInterval(function(){
 	save();
 }, 10000);
 
-function precise(x) {
+function precise(x){
   return Number.parseFloat(x).toPrecision(4);
 }
 
@@ -738,16 +640,16 @@ function upgradeMultiverse(){
 
 
 //Timer Functions
-/*var gameTime = setInterval(function(){
+var gameTime = setInterval(function(){
 	addSecond();
-}, timeSpeed);*/
+}, timeSpeed);
 
 var incomeTime = setInterval(function(){
 	addCurrency();
 	increase();
 }, incomeSpeed)
 
-/*function addSecond(){
+function addSecond(){
 	if (gameTimeData.second !== 60){
 		gameTimeData.second++
 	} else {
@@ -795,7 +697,7 @@ function addMonth(){
 		gameTimeData.year++;
 	}
 	constructTimeSection();
-};*/
+};
 
 
 
@@ -804,12 +706,12 @@ function addMonth(){
 
 
 //Constructor Functions
-/*function constructTimeSection(){
+function constructTimeSection(){
 	var timeSection = document.getElementById("game-time");
 	var timeMessage = "Seconds: " + gameTimeData.second + " Minutes: " + gameTimeData.minute + " Hours: " + gameTimeData.hour + " Days: " + gameTimeData.day + " Months: " + gameTimeData.month + " Years: " + gameTimeData.year;
 
 	timeSection.innerText = timeMessage;
-}*/
+}
 
 function constructIncome(){
 
@@ -895,7 +797,7 @@ function constructIncome(){
 }
 
 //Check Functions
-/*function isEndOfMonth(){
+function isEndOfMonth(){
 	var endOfMonth = false;
 	switch(true){
 		case(gameTimeData.month === 1 && gameTimeData.day === 31):
@@ -939,5 +841,5 @@ function constructIncome(){
 	}
 
 	return endOfMonth;
-}*/
+}
 
