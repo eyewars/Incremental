@@ -55,7 +55,7 @@ var userData = {
 	planetIncome: 0,
 	solarSystemIncome: 0,
 	galaxyIncome: 0,
-	universeIncome: 0,
+	universeIncome: 0
 }
 
 var basePrice = {
@@ -314,6 +314,8 @@ function save(){
 	localStorage.setItem("save",JSON.stringify(save)); 
 }
 
+
+
 function load(){
 	var saveGame = JSON.parse(localStorage.getItem("save")); 
 
@@ -386,7 +388,7 @@ function load(){
 }
 
 load(); 
-
+save();
 
 
 var autoSave = setInterval(function(){
